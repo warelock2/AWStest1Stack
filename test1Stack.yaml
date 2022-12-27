@@ -28,7 +28,7 @@ Resources:
             Tags: 
               - 
                 Key: "Name"
-                Value: "test1a"
+                Value: "test1"
             HibernationOptions: 
                 Configured: false
             EnclaveOptions: 
