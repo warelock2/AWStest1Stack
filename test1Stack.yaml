@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+    Generator: "former2"
+Description: ""
+Resources:
+    EC2Instance:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0b5eea76982371e91"
+            InstanceType: "t2.micro"
+            KeyName: "test1"
+            AvailabilityZone: !Sub "${AWS::Region}c"
+            Tenancy: "default"
+            SubnetId: "subnet-0be5f65cb024e2e83"
+            EbsOptimized: false
+            SecurityGroupIds: 
+              - "sg-04e52e73639abb220"
+            SourceDestCheck: true
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    Encrypted: false
+                    VolumeSize: 8
+                    SnapshotId: "snap-097c82c1f068b49cb"
+                    VolumeType: "gp2"
+                    DeleteOnTermination: true
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "test1"
+            HibernationOptions: 
+                Configured: false
+            EnclaveOptions: 
+                Enabled: false
