@@ -25,6 +25,10 @@ Resources:
                     SnapshotId: "snap-097c82c1f068b49cb"
                     VolumeType: "gp2"
                     DeleteOnTermination: true
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "test1"
             HibernationOptions: 
                 Configured: false
             EnclaveOptions: 
