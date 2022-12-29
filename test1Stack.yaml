@@ -5,8 +5,8 @@ Description: ""
 Resources:
     EC2Instance:
         Type: "AWS::EC2::Instance"
-#        Properties:
-#            ImageId: "ami-0b5eea76982371e91"
+        Properties:
+            ImageId: "ami-0b5eea76982371e91"
 #            InstanceType: "t2.micro"
 #            KeyName: "test1"
 #            AvailabilityZone: !Sub "${AWS::Region}c"
