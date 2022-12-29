@@ -9,7 +9,7 @@ Resources:
             ImageId: "ami-0b5eea76982371e91"
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
-#            AvailabilityZone: !Sub "${AWS::Region}c"
+            AvailabilityZone: !Sub "${AWS::Region}a"
 #            Tenancy: "default"
 #            SubnetId: "subnet-0be5f65cb024e2e83"
 #            EbsOptimized: false
@@ -40,7 +40,7 @@ Resources:
             ImageId: "ami-0b5eea76982371e91"
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
-#            AvailabilityZone: !Sub "${AWS::Region}c"
+            AvailabilityZone: !Sub "${AWS::Region}b"
 #            Tenancy: "default"
 #            SubnetId: "subnet-0be5f65cb024e2e83"
 #            EbsOptimized: false
