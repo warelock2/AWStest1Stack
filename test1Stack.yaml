@@ -8,7 +8,7 @@ Resources:
         Properties:
             ImageId: "ami-0b5eea76982371e91"
             InstanceType: "t2.micro"
-#            KeyName: "test1"
+            KeyName: "ec2-user"
 #            AvailabilityZone: !Sub "${AWS::Region}c"
 #            Tenancy: "default"
 #            SubnetId: "subnet-0be5f65cb024e2e83"
@@ -25,10 +25,10 @@ Resources:
 #                    SnapshotId: "snap-097c82c1f068b49cb"
 #                    VolumeType: "gp2"
 #                    DeleteOnTermination: true
-#            Tags: 
-#              - 
-#                Key: "Name"
-#                Value: "test1"
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "test1"
 #            HibernationOptions: 
 #                Configured: false
 #            EnclaveOptions: 
