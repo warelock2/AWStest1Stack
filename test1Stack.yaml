@@ -38,7 +38,7 @@ Resources:
         Properties:
             ImageId: "ami-0b5eea76982371e91"
             InstanceType: "t2.micro"
-            KeyName: "test2"
+            KeyName: "test1"
             AvailabilityZone: !Sub "${AWS::Region}c"
             Tenancy: "default"
             SubnetId: "subnet-0be5f65cb024e2e83"
