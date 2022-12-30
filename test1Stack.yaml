@@ -10,6 +10,7 @@ Resources:
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}a"
+            UserData: "Q29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKTUlNRS1WZXJzaW9uOiAxLjAKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L2Nsb3VkLWNvbmZpZzsgY2hhcnNldD0idXMtYXNjaWkiCk1JTUUtVmVyc2lvbjogMS4wCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQKQ29udGVudC1EaXNwb3NpdGlvbjogYXR0YWNobWVudDsgZmlsZW5hbWU9ImNsb3VkLWNvbmZpZy50eHQiCgojY2xvdWQtY29uZmlnCmNsb3VkX2ZpbmFsX21vZHVsZXM6Ci0gW3NjcmlwdHMtdXNlciwgYWx3YXlzXQoKLS0vLwpDb250ZW50LVR5cGU6IHRleHQveC1zaGVsbHNjcmlwdDsgY2hhcnNldD0idXMtYXNjaWkiCk1JTUUtVmVyc2lvbjogMS4wCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQKQ29udGVudC1EaXNwb3NpdGlvbjogYXR0YWNobWVudDsgZmlsZW5hbWU9InVzZXJkYXRhLnR4dCIKCiMhL2Jpbi9iYXNoCmxzIC0xIC9ldGMvc3NoLyprZXkgfCB4YXJncyAtaSBzc2gta2V5Z2VuIC1sIC1mIHt9Ci0tLy8tLQ=="
             Tags: 
               - 
                 Key: "Name"
@@ -22,6 +23,7 @@ Resources:
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}b"
+            UserData: "Q29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKTUlNRS1WZXJzaW9uOiAxLjAKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L2Nsb3VkLWNvbmZpZzsgY2hhcnNldD0idXMtYXNjaWkiCk1JTUUtVmVyc2lvbjogMS4wCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQKQ29udGVudC1EaXNwb3NpdGlvbjogYXR0YWNobWVudDsgZmlsZW5hbWU9ImNsb3VkLWNvbmZpZy50eHQiCgojY2xvdWQtY29uZmlnCmNsb3VkX2ZpbmFsX21vZHVsZXM6Ci0gW3NjcmlwdHMtdXNlciwgYWx3YXlzXQoKLS0vLwpDb250ZW50LVR5cGU6IHRleHQveC1zaGVsbHNjcmlwdDsgY2hhcnNldD0idXMtYXNjaWkiCk1JTUUtVmVyc2lvbjogMS4wCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQKQ29udGVudC1EaXNwb3NpdGlvbjogYXR0YWNobWVudDsgZmlsZW5hbWU9InVzZXJkYXRhLnR4dCIKCiMhL2Jpbi9iYXNoCmxzIC0xIC9ldGMvc3NoLyprZXkgfCB4YXJncyAtaSBzc2gta2V5Z2VuIC1sIC1mIHt9Ci0tLy8tLQ=="
             Tags: 
               - 
                 Key: "Name"
