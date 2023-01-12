@@ -33,9 +33,9 @@ Parameters:
             # 
             # This part is done only once, just after launching of the instance
             # 
-            package_update: true
-            package_upgrade: true
-            package_reboot_if_required: true
+            #package_update: true
+            #package_upgrade: true
+            #package_reboot_if_required: true
 
             power_state:
                 delay: now
@@ -44,9 +44,9 @@ Parameters:
                 timeout: 2
                 condition: true
             
-            runcmd:
-                - [ sh, -c, 'echo "Here is a line of text to log"' ]
-                - touch /tmp/i_actually_ran.txt
+            #runcmd:
+            #    - [ sh, -c, 'echo "Here is a line of text to log"' ]
+            #    - touch /tmp/i_actually_ran.txt
 
             # 
             # This part ensures that the final part runs on every boot
