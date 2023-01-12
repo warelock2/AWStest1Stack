@@ -12,6 +12,10 @@ Parameters:
         Description: Hardware
         Type: String
         Default: "t2.micro"
+    EC2KeyNameParam:
+        Description: Key Pair
+        Type: String
+        Default: "ec2-user"
 
 Resources:
     EC2Instance:
@@ -19,7 +23,7 @@ Resources:
         Properties:
             ImageId: !Ref EC2ImageIdParam 
             InstanceType: !Ref EC2InstanceTypeParam
-            KeyName: "ec2-user"
+            KeyName: !Ref EC2KeyNameParam
             AvailabilityZone: !Sub "${AWS::Region}a"
             UserData:
                 Fn::Base64:
