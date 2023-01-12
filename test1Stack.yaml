@@ -2,11 +2,19 @@ AWSTemplateFormatVersion: "2010-09-09"
 Metadata:
     Generator: "former2"
 Description: ""
+
+Parameters:
+  ImageId:
+    Description: AMI Golden Image
+    Type: String
+    Default: "ami-0b5eea76982371e91"
+
 Resources:
-    Instance:
+
+    EC2Instance:
         Type: "AWS::EC2::Instance"
         Properties:
-            ImageId: "ami-0b5eea76982371e91"
+            ImageId: !Ref ImageId
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}a"
@@ -48,52 +56,6 @@ Resources:
               - 
                 Key: "Name"
                 Value: "test1"
-
-    EC2Instance2:
-        Type: "AWS::EC2::Instance"
-        Properties:
-            ImageId: !GetAtt Instance.ImageId
-            InstanceType: "t2.micro"
-            KeyName: "ec2-user"
-            AvailabilityZone: !Sub "${AWS::Region}b"
-            UserData:
-                Fn::Base64:
-                    !Sub |
-                        Content-Type: multipart/mixed; boundary="//"
-                        MIME-Version: 1.0
-
-                        --//
-                        Content-Type: text/cloud-config; charset="us-ascii"
-                        MIME-Version: 1.0
-                        Content-Transfer-Encoding: 7bit
-                        Content-Disposition: attachment; filename="cloud-config.txt"
-
-                        #cloud-config
-                        package_update: true
-                        package_upgrade: true
-                        package_reboot_if_required: true
-                        power_state:
-                            delay: now
-                            mode: poweroff
-                            message: Powering off
-                            timeout: 2
-                            condition: true
-                        cloud_final_modules:
-                        - [scripts-user, always]
-
-                        --//
-                        Content-Type: text/x-shellscript; charset="us-ascii"
-                        MIME-Version: 1.0
-                        Content-Transfer-Encoding: 7bit
-                        Content-Disposition: attachment; filename="userdata.txt"
-
-                        #!/bin/bash
-                        ls -1 /etc/ssh/*key | xargs -i ssh-keygen -l -f {}
-                        --//--
-            Tags: 
-              - 
-                Key: "Name"
-                Value: "test2"
 
 
 #    EC2Instance2:
