@@ -10,7 +10,38 @@ Resources:
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}a"
-            UserData: "Q29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKTUlNRS1WZXJzaW9uOiAxLjAKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L2Nsb3VkLWNvbmZpZzsgY2hhcnNldD0idXMtYXNjaWkiCk1JTUUtVmVyc2lvbjogMS4wCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQKQ29udGVudC1EaXNwb3NpdGlvbjogYXR0YWNobWVudDsgZmlsZW5hbWU9ImNsb3VkLWNvbmZpZy50eHQiCgojY2xvdWQtY29uZmlnCnBhY2thZ2VfdXBncmFkZTogdHJ1ZQpwb3dlcl9zdGF0ZToKICAgIGRlbGF5OiBub3cKICAgIG1vZGU6IHBvd2Vyb2ZmCiAgICBtZXNzYWdlOiBQb3dlcmluZyBvZmYKICAgIHRpbWVvdXQ6IDIKICAgIGNvbmRpdGlvbjogdHJ1ZQpjbG91ZF9maW5hbF9tb2R1bGVzOgotIFtzY3JpcHRzLXVzZXIsIGFsd2F5c10KCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L3gtc2hlbGxzY3JpcHQ7IGNoYXJzZXQ9InVzLWFzY2lpIgpNSU1FLVZlcnNpb246IDEuMApDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiA3Yml0CkNvbnRlbnQtRGlzcG9zaXRpb246IGF0dGFjaG1lbnQ7IGZpbGVuYW1lPSJ1c2VyZGF0YS50eHQiCgojIS9iaW4vYmFzaApscyAtMSAvZXRjL3NzaC8qa2V5IHwgeGFyZ3MgLWkgc3NoLWtleWdlbiAtbCAtZiB7fQotLS8vLS0="
+            UserData:
+              Fn::Base64:
+                !Sub |
+                    Content-Type: multipart/mixed; boundary="//"
+                    MIME-Version: 1.0
+
+                    --//
+                    Content-Type: text/cloud-config; charset="us-ascii"
+                    MIME-Version: 1.0
+                    Content-Transfer-Encoding: 7bit
+                    Content-Disposition: attachment; filename="cloud-config.txt"
+
+                    #cloud-config
+                    package_upgrade: true
+                    #power_state:
+                    #    delay: now
+                    #    mode: poweroff
+                    #    message: Powering off
+                    #    timeout: 2
+                    #    condition: true
+                    cloud_final_modules:
+                    - [scripts-user, always]
+
+                    --//
+                    Content-Type: text/x-shellscript; charset="us-ascii"
+                    MIME-Version: 1.0
+                    Content-Transfer-Encoding: 7bit
+                    Content-Disposition: attachment; filename="userdata.txt"
+
+                    #!/bin/bash
+                    ls -1 /etc/ssh/*key | xargs -i ssh-keygen -l -f {}
+                    --//--
             Tags: 
               - 
                 Key: "Name"
