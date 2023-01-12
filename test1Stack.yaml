@@ -53,7 +53,7 @@ Resources:
     EC2Instance2:
         Type: "AWS::EC2::Instance"
         Properties:
-            ImageId: "ami-0b5eea76982371e91"
+            ImageId: !GetAtt EC2ReferenceInstance.ImageId
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}b"
