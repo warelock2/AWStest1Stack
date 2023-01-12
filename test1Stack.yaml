@@ -15,7 +15,7 @@ Parameters:
 
 Resources:
     EC2Instance:
-        Type: "AWS::EC2::Instance"
+        Type: !Ref EC2InstanceTypeParam
         Properties:
             ImageId: !Ref EC2InstanceImageIdParam 
             InstanceType: "t2.micro"
