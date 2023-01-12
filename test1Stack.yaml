@@ -2,32 +2,14 @@ AWSTemplateFormatVersion: "2010-09-09"
 Metadata:
     Generator: "former2"
 Description: ""
-
-Parameters:
-    EC2ImageIdParam:
-        Description: AMI
-        Type: String
-        Default: "ami-0b5eea76982371e91"
-    EC2InstanceTypeParam:
-        Description: Hardware
-        Type: String
-        Default: "t2.micro"
-    EC2KeyNameParam:
-        Description: Key Pair
-        Type: String
-        Default: "ec2-user"
-    EC2Param:
-        Description: Key Pair
-        Type: String
-        Default: "ec2-user"
-
 Resources:
+
     EC2Instance:
         Type: "AWS::EC2::Instance"
         Properties:
-            ImageId: !Ref EC2ImageIdParam 
-            InstanceType: !Ref EC2InstanceTypeParam
-            KeyName: !Ref EC2KeyNameParam
+            ImageId: "ami-0b5eea76982371e91"
+            InstanceType: "t2.micro"
+            KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}a"
             UserData:
                 Fn::Base64:
