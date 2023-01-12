@@ -64,3 +64,18 @@ Resources:
               - 
                 Key: "Name"
                 Value: "test1"
+
+    EC2Instance2:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: !Ref ImageId
+            InstanceType: !Ref InstanceType
+            KeyName: !Ref KeyName
+            AvailabilityZone: !Sub "${AWS::Region}b"
+            UserData:
+                Fn::Base64:
+                    !Ref UserData
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "test2"
