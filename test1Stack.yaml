@@ -8,12 +8,16 @@ Parameters:
         Description: Type of EC2 Instance
         Type: String
         Default: "AWS::EC2::Instance"
+    EC2InstanceImageIdParam:
+        Description: The AMI to use
+        Type: String
+        Default: "ami-0b5eea76982371e91"
 
 Resources:
     EC2Instance:
-        Type: !Ref EC2InstanceTypeParam
+        Type: "AWS::EC2::Instance"
         Properties:
-            ImageId: "ami-0b5eea76982371e91"
+            ImageId: !Ref EC2InstanceImageIdParam
             InstanceType: "t2.micro"
             KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}a"
