@@ -2,9 +2,16 @@ AWSTemplateFormatVersion: "2010-09-09"
 Metadata:
     Generator: "former2"
 Description: ""
+
+Parameters:
+    EC2InstanceTypeParam:
+        Description: Type of EC2 Instance
+        Type: String
+        Default: "AWS::EC2::Instance"
+
 Resources:
     EC2Instance:
-        Type: "AWS::EC2::Instance"
+        Type: !Ref EC2InstanceTypeParam
         Properties:
             ImageId: "ami-0b5eea76982371e91"
             InstanceType: "t2.micro"
@@ -48,20 +55,6 @@ Resources:
               - 
                 Key: "Name"
                 Value: "test1"
-
-    EC2Instance2:
-        Type: "AWS::EC2::Instance"
-        Properties:
-            ImageId: !GetAtt EC2Instance.ImageId
-            InstanceType: !Ref EC2Instance
-            KeyName: !Ref EC2Instance
-            AvailabilityZone: !Sub "${AWS::Region}b"
-            UserData: !Ref EC2Instance
-            Tags: 
-              - 
-                Key: "Name"
-                Value: "test2"
-
 
 #    EC2Instance2:
 #        Type: "AWS::EC2::Instance"
