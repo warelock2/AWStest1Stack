@@ -16,6 +16,10 @@ Parameters:
         Description: Key Pair
         Type: String
         Default: "ec2-user"
+    EC2Param:
+        Description: Key Pair
+        Type: String
+        Default: "ec2-user"
 
 Resources:
     EC2Instance:
