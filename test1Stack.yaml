@@ -33,6 +33,9 @@ Parameters:
             # 
             # This part is done only once, just after launching of the instance
             # 
+            runcmd:
+                - [ sh, -c, 'echo "Here is a line of text to log"' ]
+
             package_update: true
             package_upgrade: true
             package_reboot_if_required: true
