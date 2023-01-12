@@ -4,10 +4,18 @@ Metadata:
 Description: ""
 
 Parameters:
-  ImageId:
-    Description: AMI Golden Image
-    Type: String
-    Default: "ami-0b5eea76982371e91"
+    ImageId:
+        Description: AMI Golden Image
+        Type: String
+        Default: "ami-0b5eea76982371e91"
+    InstanceType:
+        Description: Hardware
+        Type: String
+        Default: "t2.micro"
+    KeyName:
+        Description: SSH Key Pair
+        Type: String
+        Default: "ec2-user"
 
 Resources:
 
@@ -15,8 +23,8 @@ Resources:
         Type: "AWS::EC2::Instance"
         Properties:
             ImageId: !Ref ImageId
-            InstanceType: "t2.micro"
-            KeyName: "ec2-user"
+            InstanceType: !Ref InstanceType
+            KeyName: !Ref KeyName
             AvailabilityZone: !Sub "${AWS::Region}a"
             UserData:
                 Fn::Base64:
