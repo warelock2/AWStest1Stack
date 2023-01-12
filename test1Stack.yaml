@@ -36,7 +36,6 @@ Parameters:
             runcmd:
                 #- [ sh, -c, 'echo "Here is a line of text to log"' ]
                 - touch /tmp/i_actually_ran.txt
-
             package_update: true
             package_upgrade: true
             package_reboot_if_required: true
