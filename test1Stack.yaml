@@ -50,7 +50,7 @@ Resources:
                 Value: "test1"
 
     EC2Instance2:
-        Type: !Ref EC2Instance
+        Type: "AWS::EC2::Instance"
         Properties:
             ImageId: !Ref EC2Instance
             InstanceType: !Ref EC2Instance
