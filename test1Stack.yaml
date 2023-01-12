@@ -4,21 +4,21 @@ Metadata:
 Description: ""
 
 Parameters:
-    EC2InstanceTypeParam:
-        Description: Type of EC2 Instance
-        Type: String
-        Default: "AWS::EC2::Instance"
-    EC2InstanceImageIdParam:
-        Description: The AMI to use
+    EC2ImageIdParam:
+        Description: AMI
         Type: String
         Default: "ami-0b5eea76982371e91"
+    EC2InstanceTypeParam:
+        Description: Hardware
+        Type: String
+        Default: "t2.micro"
 
 Resources:
     EC2Instance:
-        Type: !Ref EC2InstanceTypeParam
+        Type: "AWS::EC2::Instance"
         Properties:
-            ImageId: !Ref EC2InstanceImageIdParam 
-            InstanceType: "t2.micro"
+            ImageId: !Ref EC2ImageIdParam 
+            InstanceType: !Ref EC2InstanceTypeParam
             KeyName: "ec2-user"
             AvailabilityZone: !Sub "${AWS::Region}a"
             UserData:
